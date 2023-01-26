@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 
-from fraud_analysis.config.core import PIPELINE_DEBUG_DIR, config
+from fraud_analysis.config.core import OUTPUTS_DIR, PIPELINE_DEBUG_DIR, config
 
 
 # This custom step saves the column names of its input dataframe as a binary .pkl file
@@ -59,9 +59,7 @@ class save_col_names(BaseEstimator, TransformerMixin):
         feature_names = X.columns.tolist
 
         # Save as pickle
-        with open(
-            Path(PIPELINE_DEBUG_DIR, config.app_config.SAVED_COL_NAME_FILE), "wb"
-        ) as f:
+        with open(Path(OUTPUTS_DIR, config.app_config.SAVED_COL_NAME_FILE), "wb") as f:
             pickle.dump(feature_names, f)
 
         return X

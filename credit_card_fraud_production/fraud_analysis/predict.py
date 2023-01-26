@@ -4,12 +4,13 @@ from fraud_analysis import __version__ as _version
 from fraud_analysis.config.core import config
 from fraud_analysis.processing.data_manager import load_pipeline
 
-# load saved trained pipeline
-pipeline_file_name = f"{config.app_config.saved_pipeline_filename}{_version}.pkl"
-_fraud_data_pipe = load_pipeline(file_name=pipeline_file_name)
-
 
 def make_prediction(*, input_data: pd.DataFrame) -> dict:
+
+    # load saved trained pipeline
+    pipeline_file_name = f"{config.app_config.saved_pipeline_filename}{_version}.pkl"
+    _fraud_data_pipe = load_pipeline(file_name=pipeline_file_name)
+
     # Get selected features
     input_data = input_data.loc[:, config.model_config.SELECTED_FEATURES].copy()
     # Make predictions using the trained pipeline

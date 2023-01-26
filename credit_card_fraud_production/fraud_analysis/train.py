@@ -12,11 +12,9 @@ from sklearn.model_selection import train_test_split
 
 import fraud_analysis.evaluate as eval
 import fraud_analysis.predict as predict
-from fraud_analysis.config.core import (OUTPUTS_DIR, RAW_DATA_DIR,
-                                        TEST_DATA_DIR, config)
+from fraud_analysis.config.core import OUTPUTS_DIR, RAW_DATA_DIR, TEST_DATA_DIR, config
 from fraud_analysis.pipeline import data_pipeline, data_pipeline_debug
-from fraud_analysis.processing.data_manager import (create_dirs, load_dataset,
-                                                    save_pipeline)
+from fraud_analysis.processing.data_manager import create_dirs, load_dataset, save_pipeline
 
 
 def run_training():

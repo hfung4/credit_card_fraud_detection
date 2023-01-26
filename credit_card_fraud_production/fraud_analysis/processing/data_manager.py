@@ -6,9 +6,14 @@ import pandas as pd
 from imblearn.pipeline import Pipeline
 
 from fraud_analysis import __version__ as _version
-from fraud_analysis.config.core import (OUTPUTS_DIR, PIPELINE_DEBUG_DIR,
-                                        RAW_DATA_DIR, TEST_DATA_DIR,
-                                        TRAINED_MODEL_DIR, config)
+from fraud_analysis.config.core import (
+    OUTPUTS_DIR,
+    PIPELINE_DEBUG_DIR,
+    RAW_DATA_DIR,
+    TEST_DATA_DIR,
+    TRAINED_MODEL_DIR,
+    config,
+)
 
 
 # This function load the raw dataset
@@ -69,8 +74,12 @@ def load_pipeline(*, file_name: str) -> Pipeline:
     """Load a persisted pipeline."""
 
     file_path = TRAINED_MODEL_DIR / file_name
-    trained_model = joblib.load(filename=file_path)
-    return trained_model
+
+    if file_path.is_file():
+        trained_model = joblib.load(filename=file_path)
+        return trained_model
+    else:
+        raise Exception(f"Pipeline version {_version} not found!")
 
 
 def create_dirs():

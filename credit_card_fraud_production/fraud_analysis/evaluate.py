@@ -5,11 +5,16 @@ from typing import Dict, Union
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from sklearn.metrics import (average_precision_score, confusion_matrix,
-                             f1_score, make_scorer, precision_recall_curve,
-                             precision_score, recall_score)
-from sklearn.model_selection import (StratifiedKFold, cross_val_predict,
-                                     cross_val_score)
+from sklearn.metrics import (
+    average_precision_score,
+    confusion_matrix,
+    f1_score,
+    make_scorer,
+    precision_recall_curve,
+    precision_score,
+    recall_score,
+)
+from sklearn.model_selection import StratifiedKFold, cross_val_predict, cross_val_score
 
 from fraud_analysis.config.core import OUTPUTS_DIR, config
 
@@ -148,7 +153,7 @@ def evaluate(pipeline, X_train, y_train):
     print(
         f"The mean cv score (macro {config.model_config.SCORING} score)"
         + f"is {round(np.mean(cv_scores),2)} with standard"
-        + f"deviation of {round(np.std(cv_scores),2)}."
+        + f" deviation of {round(np.std(cv_scores),2)}."
     )
 
     # Plot confusion martrix and prc
