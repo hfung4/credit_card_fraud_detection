@@ -22,7 +22,7 @@ fraud_analysis/processing/__init__.py
 fraud_analysis/processing/data_manager.py
 fraud_analysis/processing/features.py
 fraud_analysis/trained_models/__init__.py
-fraud_analysis/trained_models/fraud_pipeline_v0.0.3.pkl
+fraud_analysis/trained_models/fraud_pipeline_v0.0.4.pkl
 tid_credit_card_fraud_prediction.egg-info/PKG-INFO
 tid_credit_card_fraud_prediction.egg-info/SOURCES.txt
 tid_credit_card_fraud_prediction.egg-info/dependency_links.txt

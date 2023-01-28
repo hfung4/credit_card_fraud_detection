@@ -187,7 +187,7 @@ def evaluate(pipeline, X_train, y_train):
     )
 
 
-def evaluate_on_test_set(y_test, y_pred, y_pred_scores):
+def evaluate_on_test_set(y_test, y_pred, y_pred_scores, save_dir=None):
     """evaluate_on_test_set
     Given y_test and predictions of X_test using the trained pipeline,
     generate confusion matrix and PRC
@@ -197,12 +197,19 @@ def evaluate_on_test_set(y_test, y_pred, y_pred_scores):
         y_pred (pd.Series): predictions from X_test using the trained pipeline
         y_pred_scores (np.ndarray): predicted probabilities of fraud (positive class)
         from X_test using the trained pipeline
+        save_dir: user specified Path for saving evaluation figures
     """
+    # If no user-specified output paths 
+    # for the confusion matrix and PRC 
+    # figures are provided
+    if save_dir is None:
+        save_dir = OUTPUTS_DIR
+    
     cm = confusion_matrix(y_test, y_pred)
     plot_confusion_matrix(
         cm=cm,
         classes=["Not Fraud", "Fraud"],
-        out_path=Path(OUTPUTS_DIR, "confusion_matrix_test_set.png"),
+        out_path=Path(save_dir, "confusion_matrix_test_set.png"),
         normalize=False,
         title="Fraud Detection Confusion Matrix on the Test Set",
     )
@@ -212,7 +219,7 @@ def evaluate_on_test_set(y_test, y_pred, y_pred_scores):
         y_val=y_test.iloc[:, 0],  # need to turn dataframe to series
         y_scores=y_pred_scores,
         mapping={1: "No Fraud", 2: "Fraud"},
-        out_path=Path(OUTPUTS_DIR, "prc_test_set.png"),
+        out_path=Path(save_dir, "prc_test_set.png"),
     )
 
 

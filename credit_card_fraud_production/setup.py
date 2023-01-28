@@ -10,7 +10,7 @@ NAME = "tid-credit-card-fraud-prediction"
 DESCRIPTION = (
     "Train a Random Forest model to predict credit card fraudulent transactions"
 )
-URL = "https://github.com/hfung4/Data-Projects/tree/master/credit_card_fraud_detection/credit_card_fraud_production"
+URL = "https://github.com/hfung4/credit_card_fraud_detection/tree/main/credit_card_fraud_production"
 EMAIL = "henryhfung21@gmail.com"
 AUTHOR = "HenryF"
 REQUIRES_PYTHON = ">=3.10.0"

@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: tid-credit-card-fraud-prediction
-Version: 0.0.3
+Version: 0.0.4
 Summary: Train a Random Forest model to predict credit card fraudulent transactions
-Home-page: https://github.com/hfung4/Data-Projects/tree/master/credit_card_fraud_detection/credit_card_fraud_production
+Home-page: https://github.com/hfung4/credit_card_fraud_detection/tree/main/credit_card_fraud_production
 Author: HenryF
 Author-email: henryhfung21@gmail.com
 License: BSD-3
